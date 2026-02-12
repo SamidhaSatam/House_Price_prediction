@@ -2,12 +2,10 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# ---------------- LOAD MODEL ----------------
-with open("house_price_model.pkl", "rb") as f:
-    model = pickle.load(f)
+import joblib
 
-with open("model_columns.pkl", "rb") as f:
-    model_columns = pickle.load(f)
+model = joblib.load("house_price_model.pkl")
+model_columns = joblib.load("model_columns.pkl")
 
 # ---------------- UI ----------------
 st.title("🏠 House Price Prediction App")
@@ -65,9 +63,7 @@ if st.button("Predict Price"):
 
     st.success(f"💰 Estimated House Price: ₹ {prediction[0]:,.2f}")
 
-import joblib
 
-model = joblib.load("house_price_model.pkl")
-model_columns = joblib.load("model_columns.pkl")
+
 
 
