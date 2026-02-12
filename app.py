@@ -1,7 +1,5 @@
 import streamlit as st
-import pickle
 import numpy as np
-
 import joblib
 
 model = joblib.load("house_price_model.pkl")
@@ -62,6 +60,7 @@ if st.button("Predict Price"):
     prediction = model.predict(input_data.reshape(1, -1))
 
     st.success(f"💰 Estimated House Price: ₹ {prediction[0]:,.2f}")
+
 
 
 
