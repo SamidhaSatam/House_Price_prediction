@@ -64,3 +64,10 @@ if st.button("Predict Price"):
     prediction = model.predict(input_data.reshape(1, -1))
 
     st.success(f"💰 Estimated House Price: ₹ {prediction[0]:,.2f}")
+
+import joblib
+
+model = joblib.load("house_price_model.pkl")
+model_columns = joblib.load("model_columns.pkl")
+
+
